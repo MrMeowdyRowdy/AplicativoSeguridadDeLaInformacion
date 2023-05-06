@@ -1,0 +1,113 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Activo>
+
+@{
+    ViewData["Title"] = "Registro de Activos";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificador)
+            </th>
+            <th>
+                Ubicación
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proceso)
+            </th>
+            <th>
+                Nombre del Activo
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Responsable)
+            </th>
+            <th>
+                Clasificación
+            </th>
+            <th>
+                Valor económico
+            </th>
+            <th>
+                Valor operacional
+            </th>
+            <th>
+                Valor legal
+            </th>
+            <th>
+                Valor reputacional
+            </th>
+            <th>
+                Valor vrivacidad
+            </th>
+            <th>
+                Valor seguridad
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Criticidad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValEconomico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValOps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValLegal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValRep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValPriv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValSeg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criticidad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ActivoID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ActivoID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ActivoID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
