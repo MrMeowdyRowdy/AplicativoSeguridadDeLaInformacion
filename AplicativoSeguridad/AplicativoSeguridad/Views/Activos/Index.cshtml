@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AplicativoSeguridad.Models.Activo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista Activos";
 }
 
-<h1>Index</h1>
+<h1>Registro de Activos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Añadir nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -16,40 +16,22 @@
                 @Html.DisplayNameFor(model => model.Identificador)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ubicacion)
+                Ubicación
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Proceso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreActivo)
+                Nombre del activo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                Descripción
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Responsable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Clasificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValEconomico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValOps)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValLegal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValRep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValPriv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValSeg)
+                Clasificación
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Criticidad)
@@ -82,30 +64,12 @@
                 @Html.DisplayFor(modelItem => item.Clasificacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValEconomico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValOps)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValLegal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValRep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValPriv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValSeg)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Criticidad)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
