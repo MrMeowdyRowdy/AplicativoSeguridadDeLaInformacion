@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AplicativoSeguridad.Models;
 
 namespace AplicativoSeguridad.Data
 {
@@ -9,5 +10,6 @@ namespace AplicativoSeguridad.Data
             : base(options)
         {
         }
+        public DbSet<AplicativoSeguridad.Models.Activo>? Activo { get; set; }
     }
 }
