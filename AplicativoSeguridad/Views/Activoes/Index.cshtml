@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AplicativoSeguridad.Models.Activo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Registro de Activos";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -16,40 +16,40 @@
                 @Html.DisplayNameFor(model => model.Identificador)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ubicacion)
+                Ubicación
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Proceso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreActivo)
+                Nombre del Activo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                Descripción
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Responsable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Clasificacion)
+                Clasificación
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValEconomico)
+                Valor económico
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValOps)
+                Valor operacional
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValLegal)
+                Valor legal
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValRep)
+                Valor reputacional
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValPriv)
+                Valor vrivacidad
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValSeg)
+                Valor seguridad
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Criticidad)
@@ -103,9 +103,9 @@
                 @Html.DisplayFor(modelItem => item.Criticidad)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ActivoID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ActivoID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ActivoID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ActivoID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ActivoID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ActivoID">Eliminar</a>
             </td>
         </tr>
 }
