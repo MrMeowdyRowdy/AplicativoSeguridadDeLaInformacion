@@ -1,10 +1,10 @@
 ﻿@model AplicativoSeguridad.Models.Activo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
 <h4>Activo</h4>
 <hr />
@@ -18,7 +18,7 @@
                 <span asp-validation-for="Identificador" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ubicacion" class="control-label"></label>
+                <label asp-for="Ubicacion" class="control-label">Ubicación</label>
                 <input asp-for="Ubicacion" class="form-control" />
                 <span asp-validation-for="Ubicacion" class="text-danger"></span>
             </div>
@@ -28,12 +28,12 @@
                 <span asp-validation-for="Proceso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NombreActivo" class="control-label"></label>
+                <label asp-for="NombreActivo" class="control-label">Nombre Activo</label>
                 <input asp-for="NombreActivo" class="form-control" />
                 <span asp-validation-for="NombreActivo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
                 <input asp-for="Descripcion" class="form-control" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
@@ -43,54 +43,54 @@
                 <span asp-validation-for="Responsable" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Clasificacion" class="control-label"></label>
+                <label asp-for="Clasificacion" class="control-label">Clasificación</label>
                 <input asp-for="Clasificacion" class="form-control" />
                 <span asp-validation-for="Clasificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValEconomico" class="control-label"></label>
+                <label asp-for="ValEconomico" class="control-label">Valor Económico</label>
                 <input asp-for="ValEconomico" class="form-control" />
                 <span asp-validation-for="ValEconomico" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValOps" class="control-label"></label>
+                <label asp-for="ValOps" class="control-label">Valor Operativo</label>
                 <input asp-for="ValOps" class="form-control" />
                 <span asp-validation-for="ValOps" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValLegal" class="control-label"></label>
+                <label asp-for="ValLegal" class="control-label">Valor Legal</label>
                 <input asp-for="ValLegal" class="form-control" />
                 <span asp-validation-for="ValLegal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValRep" class="control-label"></label>
+                <label asp-for="ValRep" class="control-label">Valor Reputacional</label>
                 <input asp-for="ValRep" class="form-control" />
                 <span asp-validation-for="ValRep" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValPriv" class="control-label"></label>
+                <label asp-for="ValPriv" class="control-label">Valor Privacidad</label>
                 <input asp-for="ValPriv" class="form-control" />
                 <span asp-validation-for="ValPriv" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValSeg" class="control-label"></label>
+                <label asp-for="ValSeg" class="control-label">Valor Seguridad</label>
                 <input asp-for="ValSeg" class="form-control" />
                 <span asp-validation-for="ValSeg" class="text-danger"></span>
             </div>
-            <div class="form-group">
+@*            <div class="form-group">
                 <label asp-for="Criticidad" class="control-label"></label>
                 <input asp-for="Criticidad" class="form-control" />
                 <span asp-validation-for="Criticidad" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista de registros</a>
 </div>
 
 @section Scripts {

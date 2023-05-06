@@ -58,6 +58,7 @@ namespace AplicativoSeguridad.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Identificador,Ubicacion,Proceso,NombreActivo,Descripcion,Responsable,Clasificacion,ValEconomico,ValOps,ValLegal,ValRep,ValPriv,ValSeg,Criticidad")] Activo activo)
         {
+            activo = calculoCriticidad(activo);
             if (ModelState.IsValid)
             {
                 _context.Add(activo);
@@ -99,6 +100,7 @@ namespace AplicativoSeguridad.Controllers
             {
                 try
                 {
+                    activo = calculoCriticidad(activo);
                     _context.Update(activo);
                     await _context.SaveChangesAsync();
                 }
@@ -159,5 +161,24 @@ namespace AplicativoSeguridad.Controllers
         {
           return (_context.Activo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-    }
+
+        private Activo calculoCriticidad(Activo activo)
+        {
+            float criticidadCalculo = (activo.ValEconomico + activo.ValLegal + activo.ValOps + activo.ValPriv + activo.ValRep + activo.ValSeg) / 6;
+            if (criticidadCalculo > 0 && criticidadCalculo<1.5) 
+            {
+                criticidadCalculo = 1;
+            }
+            if (criticidadCalculo > 1.5 && criticidadCalculo < 2.5)
+            {
+                criticidadCalculo = 2;
+            }
+            if (criticidadCalculo > 2.5)
+            {
+                criticidadCalculo = 3;
+            }
+            activo.Criticidad = (int)criticidadCalculo;
+            return activo;
+        }
+    } 
 }
