@@ -4,98 +4,117 @@
     ViewData["Title"] = "Detalles";
 }
 
-<h1>Detalles de los Activos</h1>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Identificador)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Identificador)
-        </dd>
-        <dt class = "col-sm-2">
-            Ubicación
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ubicacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Proceso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Proceso)
-        </dd>
-        <dt class = "col-sm-2">
-            Nombre del activo
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreActivo)
-        </dd>
-        <dt class = "col-sm-2">
-            Descripción
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Responsable)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Responsable)
-        </dd>
-        <dt class = "col-sm-2">
-            Clasificación
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Clasificacion)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor económico
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValEconomico)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor operacional
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValOps)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor legal
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValLegal)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor reputacional
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValRep)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor Privacidad
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValPriv)
-        </dd>
-        <dt class = "col-sm-2">
-            Valor seguridad
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValSeg)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Criticidad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Criticidad)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
-    <a asp-action="Index">Volver a la lista de registros</a>
-</div>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Detalles de los Activos</h1>
+
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Identificador)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Identificador)
+            </dd>
+            <dt class = "col-sm-2">
+                Ubicación
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Ubicacion)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Proceso)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Proceso)
+            </dd>
+            <dt class = "col-sm-2">
+                Nombre del activo
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.NombreActivo)
+            </dd>
+            <dt class = "col-sm-2">
+                Descripción
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Responsable)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Responsable)
+            </dd>
+            <dt class = "col-sm-2">
+                Clasificación
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Clasificacion)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor económico
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValEconomico)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor operacional
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValOps)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor legal
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValLegal)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor reputacional
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValRep)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor Privacidad
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValPriv)
+            </dd>
+            <dt class = "col-sm-2">
+                Valor seguridad
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ValSeg)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Criticidad)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Criticidad)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+        <a asp-action="Index">Volver a la lista de registros</a>
+    </div>
+}
+else
+{
+    <h1>ERROR 403: ACCESO NO AUTORIZADO</h1>
+    <p>O si es que cree tener acceso, pruebe iniciando sesión para acceder a la página</p>
+    <div>
+        <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión aquí</a>
+    </div>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Volver a la página principal</a>
+    </div>
+}
