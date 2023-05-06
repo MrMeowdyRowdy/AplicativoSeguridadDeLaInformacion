@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplicativoSeguridad.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230506021111_BDD2")]
-    partial class BDD2
+    [Migration("20230506222832_BDD")]
+    partial class BDD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
