@@ -4,6 +4,10 @@
     ViewData["Title"] = "Crear";
 }
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <h1>Crear</h1>
 
 <h4>Activo</h4>
