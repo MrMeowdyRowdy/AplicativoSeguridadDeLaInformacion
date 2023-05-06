@@ -165,21 +165,17 @@ namespace AplicativoSeguridad.Controllers
         private Activo CalculoCriticidad(Activo activo)
         {
             float criticidadCalculo = (float)((activo.ValEconomico + activo.ValLegal + activo.ValOps + activo.ValPriv + activo.ValRep + activo.ValSeg)/6.0);
-            int flag=5;
             if (criticidadCalculo >= 1 && criticidadCalculo < 1.5) 
             {
                 criticidadCalculo = 1;
-                flag = 0;
             }
             else if (criticidadCalculo >= 1.5 && criticidadCalculo < 2.5)
             {
                 criticidadCalculo = 2;
-                flag = 1;
             }
             else if (criticidadCalculo >= 2.5)
             {
                 criticidadCalculo = 3;
-                flag = 2;
             }
             activo.Criticidad = (int)criticidadCalculo;
             return activo;
