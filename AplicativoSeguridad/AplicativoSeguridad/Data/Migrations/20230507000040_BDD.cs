@@ -12,7 +12,7 @@ namespace AplicativoSeguridad.Data.Migrations
                 name: "Activo",
                 columns: table => new
                 {
-                    ActivoID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Identificador = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -31,7 +31,7 @@ namespace AplicativoSeguridad.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Activo", x => x.ActivoID);
+                    table.PrimaryKey("PK_Activo", x => x.Id);
                 });
         }
 
