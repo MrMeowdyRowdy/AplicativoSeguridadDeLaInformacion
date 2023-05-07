@@ -1,109 +1,103 @@
 ﻿@model AplicativoSeguridad.Models.Activo
 
 @{
-    ViewData["Title"] = "Editar";
+    ViewData["Title"] = "Edit";
 }
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+<h1>Edit</h1>
 
-@if (SignInManager.IsSignedIn(User))
-{
-    <h1>Editar un activo</h1>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Identificador" class="control-label"></label>
-                    <input asp-for="Identificador" class="form-control" />
-                    <span asp-validation-for="Identificador" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Ubicacion" class="control-label"></label>
-                    <input asp-for="Ubicacion" class="form-control" />
-                    <span asp-validation-for="Ubicacion" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Proceso" class="control-label"></label>
-                    <input asp-for="Proceso" class="form-control" />
-                    <span asp-validation-for="Proceso" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="NombreActivo" class="control-label">Nombre del activo</label>
-                    <input asp-for="NombreActivo" class="form-control" />
-                    <span asp-validation-for="NombreActivo" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Descripcion" class="control-label">Descripción</label>
-                    <input asp-for="Descripcion" class="form-control" />
-                    <span asp-validation-for="Descripcion" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Responsable" class="control-label"></label>
-                    <input asp-for="Responsable" class="form-control" />
-                    <span asp-validation-for="Responsable" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Clasificacion" class="control-label">Clasificación</label>
-                    <input asp-for="Clasificacion" class="form-control" />
-                    <span asp-validation-for="Clasificacion" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValEconomico" class="control-label">Valor económico</label>
-                    <input asp-for="ValEconomico" class="form-control" />
-                    <span asp-validation-for="ValEconomico" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValOps" class="control-label">Valor operativo</label>
-                    <input asp-for="ValOps" class="form-control" />
-                    <span asp-validation-for="ValOps" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValLegal" class="control-label">Valor legal</label>
-                    <input asp-for="ValLegal" class="form-control" />
-                    <span asp-validation-for="ValLegal" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValRep" class="control-label">Valor reputacional</label>
-                    <input asp-for="ValRep" class="form-control" />
-                    <span asp-validation-for="ValRep" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValPriv" class="control-label">Valor privacidad</label>
-                    <input asp-for="ValPriv" class="form-control" />
-                    <span asp-validation-for="ValPriv" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ValSeg" class="control-label">Valor seguridad</label>
-                    <input asp-for="ValSeg" class="form-control" />
-                    <span asp-validation-for="ValSeg" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
+<h4>Activo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Identificador" class="control-label"></label>
+                <input asp-for="Identificador" class="form-control" />
+                <span asp-validation-for="Identificador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ubicacion" class="control-label"></label>
+                <input asp-for="Ubicacion" class="form-control" />
+                <span asp-validation-for="Ubicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proceso" class="control-label"></label>
+                <input asp-for="Proceso" class="form-control" />
+                <span asp-validation-for="Proceso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreActivo" class="control-label"></label>
+                <input asp-for="NombreActivo" class="form-control" />
+                <span asp-validation-for="NombreActivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Responsable" class="control-label"></label>
+                <input asp-for="Responsable" class="form-control" />
+                <span asp-validation-for="Responsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clasificacion" class="control-label"></label>
+                <input asp-for="Clasificacion" class="form-control" />
+                <span asp-validation-for="Clasificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValEconomico" class="control-label"></label>
+                <input asp-for="ValEconomico" class="form-control" />
+                <span asp-validation-for="ValEconomico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValOps" class="control-label"></label>
+                <input asp-for="ValOps" class="form-control" />
+                <span asp-validation-for="ValOps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValLegal" class="control-label"></label>
+                <input asp-for="ValLegal" class="form-control" />
+                <span asp-validation-for="ValLegal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValRep" class="control-label"></label>
+                <input asp-for="ValRep" class="form-control" />
+                <span asp-validation-for="ValRep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValPriv" class="control-label"></label>
+                <input asp-for="ValPriv" class="form-control" />
+                <span asp-validation-for="ValPriv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValSeg" class="control-label"></label>
+                <input asp-for="ValSeg" class="form-control" />
+                <span asp-validation-for="ValSeg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Criticidad" class="control-label"></label>
+                <input asp-for="Criticidad" class="form-control" />
+                <span asp-validation-for="Criticidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <div>
-        <a asp-action="Index">Volver a la lista de registros</a>
-    </div>
-}
-else
-{
-    <h1>ERROR 403: ACCESO NO AUTORIZADO</h1>
-    <p>O si es que cree tener acceso, pruebe iniciando sesión para acceder a la página</p>
-    <div>
-        <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión aquí</a>
-    </div>
-    <div>
-        <a asp-controller="Home" asp-action="Index">Volver a la página principal</a>
-    </div>
-}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

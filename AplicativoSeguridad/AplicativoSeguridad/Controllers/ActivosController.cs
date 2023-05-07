@@ -56,9 +56,8 @@ namespace AplicativoSeguridad.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Identificador,Ubicacion,Proceso,NombreActivo,Descripcion,Responsable,Clasificacion,ValEconomico,ValOps,ValLegal,ValRep,ValPriv,ValSeg,Criticidad")] Activo activo)
+        public async Task<IActionResult> Create([Bind("Id,Identificador,Ubicacion,Proceso,NombreActivo,Descripcion,Tipo,Responsable,Clasificacion,ValEconomico,ValOps,ValLegal,ValRep,ValPriv,ValSeg,Criticidad")] Activo activo)
         {
-            activo = CalculoCriticidad(activo);
             if (ModelState.IsValid)
             {
                 _context.Add(activo);
@@ -89,7 +88,7 @@ namespace AplicativoSeguridad.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Identificador,Ubicacion,Proceso,NombreActivo,Descripcion,Responsable,Clasificacion,ValEconomico,ValOps,ValLegal,ValRep,ValPriv,ValSeg,Criticidad")] Activo activo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Identificador,Ubicacion,Proceso,NombreActivo,Descripcion,Tipo,Responsable,Clasificacion,ValEconomico,ValOps,ValLegal,ValRep,ValPriv,ValSeg,Criticidad")] Activo activo)
         {
             if (id != activo.Id)
             {
@@ -100,7 +99,6 @@ namespace AplicativoSeguridad.Controllers
             {
                 try
                 {
-                    activo = CalculoCriticidad(activo);
                     _context.Update(activo);
                     await _context.SaveChangesAsync();
                 }
@@ -160,24 +158,6 @@ namespace AplicativoSeguridad.Controllers
         private bool ActivoExists(int id)
         {
           return (_context.Activo?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-        private Activo CalculoCriticidad(Activo activo)
-        {
-            float criticidadCalculo = (float)((activo.ValEconomico + activo.ValLegal + activo.ValOps + activo.ValPriv + activo.ValRep + activo.ValSeg) / 6.0);
-            if (criticidadCalculo >= 1 && criticidadCalculo < 1.5)
-            {
-                criticidadCalculo = 1;
-            }
-            else if (criticidadCalculo >= 1.5 && criticidadCalculo < 2.5)
-            {
-                criticidadCalculo = 2;
-            }
-            else if (criticidadCalculo >= 2.5)
-            {
-                criticidadCalculo = 3;
-            }
-            activo.Criticidad = (int)criticidadCalculo;
-            return activo;
         }
     }
 }
