@@ -161,5 +161,23 @@ namespace AplicativoSeguridad.Controllers
         {
           return (_context.Activo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        private Activo CalculoCriticidad(Activo activo)
+        {
+            float criticidadCalculo = (float)((activo.ValEconomico + activo.ValLegal + activo.ValOps + activo.ValPriv + activo.ValRep + activo.ValSeg) / 6.0);
+            if (criticidadCalculo >= 1 && criticidadCalculo < 1.5)
+            {
+                criticidadCalculo = 1;
+            }
+            else if (criticidadCalculo >= 1.5 && criticidadCalculo < 2.5)
+            {
+                criticidadCalculo = 2;
+            }
+            else if (criticidadCalculo >= 2.5)
+            {
+                criticidadCalculo = 3;
+            }
+            activo.Criticidad = (int)criticidadCalculo;
+            return activo;
+        }
     }
 }
