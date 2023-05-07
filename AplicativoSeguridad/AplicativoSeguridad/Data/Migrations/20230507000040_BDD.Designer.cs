@@ -41,6 +41,9 @@ namespace AplicativoSeguridad.Data.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Identificador")
                         .HasColumnType("nvarchar(max)");
 

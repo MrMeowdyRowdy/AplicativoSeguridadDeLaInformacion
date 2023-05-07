@@ -19,6 +19,7 @@ namespace AplicativoSeguridad.Data.Migrations
                     Proceso = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NombreActivo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Responsable = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Clasificacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ValEconomico = table.Column<int>(type: "int", nullable: false),

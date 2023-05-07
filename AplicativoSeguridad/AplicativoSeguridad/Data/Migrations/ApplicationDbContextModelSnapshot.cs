@@ -51,6 +51,9 @@ namespace AplicativoSeguridad.Data.Migrations
                     b.Property<string>("Responsable")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Ubicacion")
                         .HasColumnType("nvarchar(max)");
 

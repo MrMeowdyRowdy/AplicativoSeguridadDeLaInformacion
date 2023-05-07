@@ -19,6 +19,8 @@ namespace AplicativoSeguridad.Models
         [Required]
         public string? Descripcion { get; set; }
         [Required]
+        public string? Tipo { get; set; }
+        [Required]
         public string? Responsable { get; set; }
         [Required]
         public string? Clasificacion { get; set; }
