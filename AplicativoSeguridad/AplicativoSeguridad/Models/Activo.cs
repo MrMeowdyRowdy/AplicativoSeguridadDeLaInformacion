@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
 namespace AplicativoSeguridad.Models
@@ -24,17 +24,17 @@ namespace AplicativoSeguridad.Models
         public string? Responsable { get; set; }
         [Required]
         public string? Clasificacion { get; set; }
-        [Required]
+        [Required,Range(1,3)]
         public int ValEconomico { get; set; }
-        [Required]
+        [Required, Range(1, 3)]
         public int ValOps { get; set; }
-        [Required]
+        [Required, Range(1, 3)]
         public int ValLegal { get; set; }
-        [Required]
+        [Required, Range(1, 3)]
         public int ValRep { get; set; }
-        [Required]
+        [Required, Range(1, 3)]
         public int ValPriv { get; set; }
-        [Required]
+        [Required, Range(1, 3)]
         public int ValSeg { get; set; }
 
         public int Criticidad { get; set; }
