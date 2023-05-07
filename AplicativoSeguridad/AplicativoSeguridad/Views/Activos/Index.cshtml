@@ -15,8 +15,9 @@
     <p>
         <a asp-action="Create">Añadir nuevo</a>
     </p>
-    <table class="table">
-        <thead>
+    <table class="table table-striped"
+           style="border-collapse: collapse; border-radius: 10px; overflow: hidden">
+        <thead style="background-color: black; color: white;">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Identificador)
@@ -76,13 +77,30 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Clasificacion)
                     </td>
+                    @if (item.Criticidad == 1)
+                    {
+                        <td style="background-color: #A3E4D7;">
+                            @Html.DisplayFor(modelItem => item.Criticidad)
+                        </td>
+                    }
+                    else if (item.Criticidad == 2)
+                    {
+                        <td style="background-color: #E67E22;">
+                            @Html.DisplayFor(modelItem => item.Criticidad)
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="background-color: #E74C3C;">
+                            @Html.DisplayFor(modelItem => item.Criticidad)
+                        </td>
+                    }
                     <td>
-                        @Html.DisplayFor(modelItem => item.Criticidad)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </div>
                     </td>
                 </tr>
             }
