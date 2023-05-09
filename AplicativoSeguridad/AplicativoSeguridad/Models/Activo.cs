@@ -22,7 +22,7 @@ namespace AplicativoSeguridad.Models
         public string? Tipo { get; set; }
         [Required]
         public string? Responsable { get; set; }
-        [Required]
+        
         public string? Clasificacion { get; set; }
         [Required,Range(1,3)]
         public int ValEconomico { get; set; }
