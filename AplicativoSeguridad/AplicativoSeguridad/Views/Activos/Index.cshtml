@@ -74,11 +74,11 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Responsable)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Clasificacion)
-                    </td>
                     @if (item.Criticidad == 1)
                     {
+                        <td style="background-color: #58D68D;">
+                            @Html.DisplayFor(modelItem => item.Clasificacion)
+                        </td>
                         <td style="background-color: #58D68D;">
                             @Html.DisplayFor(modelItem => item.Criticidad)
                         </td>
@@ -86,11 +86,17 @@
                     else if (item.Criticidad == 2)
                     {
                         <td style="background-color: #F4D03F;">
+                            @Html.DisplayFor(modelItem => item.Clasificacion)
+                        </td>
+                        <td style="background-color: #F4D03F;">
                             @Html.DisplayFor(modelItem => item.Criticidad)
                         </td>
                     }
                     else
                     {
+                        <td style="background-color: #E74C3C;">
+                            @Html.DisplayFor(modelItem => item.Clasificacion)
+                        </td>
                         <td style="background-color: #E74C3C;">
                             @Html.DisplayFor(modelItem => item.Criticidad)
                         </td>

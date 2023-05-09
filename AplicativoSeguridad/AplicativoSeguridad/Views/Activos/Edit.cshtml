@@ -44,7 +44,13 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Tipo" class="control-label"></label>
-                    <input asp-for="Tipo" class="form-control" />
+                    <select name="Tipo" id="Tipo">
+                        <option value="Software">Software</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Red">Red</option>
+                        <option value="Talento Humano">TalentoHumano</option>
+                    </select>
+                    @*<input asp-for="Tipo" class="form-control" />*@
                     <span asp-validation-for="Tipo" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -52,11 +58,11 @@
                     <input asp-for="Responsable" class="form-control" />
                     <span asp-validation-for="Responsable" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label asp-for="Clasificacion" class="control-label">Clasificación</label>
                     <input asp-for="Clasificacion" class="form-control" />
                     <span asp-validation-for="Clasificacion" class="text-danger"></span>
-                </div>
+                </div>*@
                 <div class="form-group">
                     <label asp-for="ValEconomico" class="control-label">Valor económico</label>
                     <input asp-for="ValEconomico" class="form-control" />

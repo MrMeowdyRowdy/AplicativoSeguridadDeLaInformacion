@@ -178,6 +178,16 @@ namespace AplicativoSeguridad.Controllers
                 criticidadCalculo = 3;
             }
             activo.Criticidad = (int)criticidadCalculo;
+            string clasificacion;
+            if (criticidadCalculo == 1)
+            {
+                clasificacion = "No crítico";
+            }
+            else
+            {
+                clasificacion = "Crítico";
+            }
+            activo.Clasificacion = clasificacion;
             return activo;
         }
 
