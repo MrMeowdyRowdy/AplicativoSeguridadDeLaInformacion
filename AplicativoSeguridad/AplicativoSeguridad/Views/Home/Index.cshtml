@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Bienvenido!";
-}
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<body>
+    <!-- Header - set the background image for the header in the line below-->
+    <header class="py-5 bg-image-full h-100" style="background-image: url('https://www.vetasi.com/wp-content/uploads/2023/01/Asset-Management-Advisory-Services.jpg');">
+        <div class="text-center my-5">
+            <h1 class="text-black fs-3 fw-bolder">Aplicativo de Gestión de Activos</h1>
+            <p class="text-black-50 mb-0" style="font-size: 25px">Maneje los activos de su empresa de manera fácil y rápida</p>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a class="btn btn-outline-dark text-light" asp-area="" asp-controller="Activos" asp-action="Index">Try system</a>
+            }
+            else
+            {
+                <a class="btn btn-outline-dark text-light" asp-area="Identity" asp-page="/Account/Login">Try system</a>
+            }
+            
+        </div>
+    </header>
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="text-center" style="font-size: 50px">Categorización de Activos</h2>
+                    <p class="lead text-center">Cada uno de los activos presentes dentro de la organización se identifican de manera única.</p>
+                    <p class="mb-0 text-center" style="font-size: 25px">Para la categorización de los activos de la empresa se tomarán en cuenta aspectos como el proceso al que pertenece, nombre, breve descripción, ubicación, responsable y el tipo de activo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Image element - set the background image for the header in the line below-->
+    <div class="py-5 bg-image-full" style="background-image: url('https://cdn.ttgtmedia.com/visuals/ComputerWeekly/Hero%20Images/cyber-security-attack-hack-breach-MaksymFilipchuk-adobe.jpg')">
+        <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+        <div style="height: 19rem"></div>
+    </div>
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="text-center" style="font-size: 50px">Criticidad</h2>
+                    <p class="lead text-center">¿No sabe cómo establecer el nivel de criticidad de sus activos?</p>
+                    <p class="mb-0 text-center" style="font-size: 25px">A través de escalas utilizadas para establecer los valores económicos, operacionales, legales, reputacionales, de privacidad y salud, nosotros nos encargamos de calcular y definir el nivel de criticidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</body>
