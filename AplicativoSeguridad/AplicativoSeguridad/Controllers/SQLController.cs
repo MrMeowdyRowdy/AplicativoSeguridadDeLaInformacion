@@ -43,6 +43,8 @@ namespace AplicativoSeguridad.Controllers
 
             // Retrieve the "Activo" data from the SQL Server or other data source
             using (SqlConnection connection = new SqlConnection("Server=DESKTOP-G6T119Q;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            //using (SqlConnection connection = new SqlConnection("Server=BlackDragon;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            //using (SqlConnection connection = new SqlConnection("Server=MSI\\SQLEXPRESS;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
             {
                 connection.Open();
 
