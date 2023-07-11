@@ -6,10 +6,10 @@
     <header class="py-5 bg-image-full h-100" style="background-image: url('https://www.vetasi.com/wp-content/uploads/2023/01/Asset-Management-Advisory-Services.jpg');">
         <div class="text-center my-5">
             <h1 class="text-black fs-3 fw-bolder">Aplicativo de Gestión de Activos</h1>
-            <p class="text-black-50 mb-0" style="font-size: 25px">Maneje los activos de su empresa de manera fácil y rápida</p>
+            <p class="text-black-53 mb-0" style="font-size: 25px">Maneje los activos de su empresa de manera fácil y rápida</p>
             @if (SignInManager.IsSignedIn(User))
             {
-                <a class="btn btn-outline-dark text-light" asp-area="" asp-controller="Activos" asp-action="Index">Try system</a>
+                <a class="btn btn-primary" asp-area="" asp-controller="Activos" asp-action="Index">Try system</a>
             }
             else
             {
