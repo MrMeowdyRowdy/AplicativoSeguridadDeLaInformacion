@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Amenaza>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hardware)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Software)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Redes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TH)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hardware)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Software)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Redes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TH)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

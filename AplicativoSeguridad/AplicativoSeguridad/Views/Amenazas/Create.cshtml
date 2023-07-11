@@ -1,0 +1,82 @@
+﻿@model AplicativoSeguridad.Models.Amenaza
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Create</h1>
+
+    <h4>Amenaza</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Tipo" class="control-label"></label>
+                    <input asp-for="Tipo" class="form-control" />
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Origen" class="control-label"></label>
+                    <input asp-for="Origen" class="form-control" />
+                    <span asp-validation-for="Origen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Codigo" class="control-label"></label>
+                    <input asp-for="Codigo" class="form-control" />
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Hardware" /> @Html.DisplayNameFor(model => model.Hardware)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Software" /> @Html.DisplayNameFor(model => model.Software)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Redes" /> @Html.DisplayNameFor(model => model.Redes)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="TH" /> @Html.DisplayNameFor(model => model.TH)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+}
+else
+{
+    <h1>ERROR 403: ACCESO NO AUTORIZADO</h1>
+    <p>O si es que cree tener acceso, pruebe iniciando sesión para acceder a la página</p>
+    <div>
+        <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión aquí</a>
+    </div>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Volver a la página principal</a>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Vulnerabilidad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amenaza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NivAmenaza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NivVulnerabilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tolerancia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Control)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RiesgoResidual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NivRiesgo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amenaza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivAmenaza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivVulnerabilidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tolerancia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Control)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiesgoResidual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivRiesgo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

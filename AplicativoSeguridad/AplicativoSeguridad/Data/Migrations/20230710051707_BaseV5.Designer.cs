@@ -4,6 +4,7 @@ using AplicativoSeguridad.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplicativoSeguridad.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230710051707_BaseV5")]
+    partial class BaseV5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,10 +182,6 @@ namespace AplicativoSeguridad.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Codigo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Control")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -197,12 +195,16 @@ namespace AplicativoSeguridad.Data.Migrations
                     b.Property<int>("NivVulnerabilidad")
                         .HasColumnType("int");
 
-                    b.Property<int>("RiesgoResidual")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tolerancia")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreActivo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RiesgoResidual")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

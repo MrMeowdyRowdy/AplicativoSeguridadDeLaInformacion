@@ -1,0 +1,72 @@
+﻿@model AplicativoSeguridad.Models.Vulnerabilidad
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vulnerabilidad</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amenaza)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amenaza)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NivAmenaza)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NivAmenaza)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NivVulnerabilidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NivVulnerabilidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tolerancia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tolerancia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Control)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Control)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RiesgoResidual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RiesgoResidual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NivRiesgo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NivRiesgo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
