@@ -265,7 +265,7 @@ namespace AplicativoSeguridad.Controllers
             }
             else
             {
-                vulnerabilidades.RiesgoResidual = 0;
+                vulnerabilidades.RiesgoResidual = 1;
             }
             return vulnerabilidades;
         }
