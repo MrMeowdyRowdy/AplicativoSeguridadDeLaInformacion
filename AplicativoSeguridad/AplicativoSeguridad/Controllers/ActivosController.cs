@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AplicativoSeguridad.Data;
 using AplicativoSeguridad.Models;
+using Microsoft.Data.SqlClient;
 
 namespace AplicativoSeguridad.Controllers
 {
@@ -48,6 +49,8 @@ namespace AplicativoSeguridad.Controllers
         // GET: Activos/Create
         public IActionResult Create()
         {
+            List<string> tipos = new List<string> { "Software", "Hardware", "Red", "Talento Humano" };
+            ViewBag.TipoList = new SelectList(tipos);
             return View();
         }
 
@@ -65,6 +68,10 @@ namespace AplicativoSeguridad.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            List<string> tipos = new List<string> { "Software", "Hardware", "Red", "Talento Humano" };
+            ViewBag.TipoList = new SelectList(tipos);
+
             return View(activo);
         }
 
@@ -81,6 +88,10 @@ namespace AplicativoSeguridad.Controllers
             {
                 return NotFound();
             }
+
+            List<string> tipos = new List<string> { "Software", "Hardware", "Red", "Talento Humano" };
+            ViewBag.TipoList = new SelectList(tipos);
+
             return View(activo);
         }
 
@@ -117,6 +128,10 @@ namespace AplicativoSeguridad.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            List<string> tipos = new List<string> { "Software", "Hardware", "Red", "Talento Humano" };
+            ViewBag.TipoList = new SelectList(tipos);
+
             return View(activo);
         }
 

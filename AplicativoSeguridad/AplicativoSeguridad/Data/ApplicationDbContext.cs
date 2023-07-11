@@ -11,5 +11,8 @@ namespace AplicativoSeguridad.Data
         {
         }
         public DbSet<AplicativoSeguridad.Models.Activo>? Activo { get; set; }
+        public DbSet<AplicativoSeguridad.Models.Control>? Control { get; set; }
+        public DbSet<AplicativoSeguridad.Models.Amenaza>? Amenaza { get; set; }
+        public DbSet<AplicativoSeguridad.Models.Vulnerabilidad>? Vulnerabilidad { get; set; }
     }
 }

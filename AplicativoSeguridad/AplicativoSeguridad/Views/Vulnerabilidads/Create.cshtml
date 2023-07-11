@@ -1,0 +1,83 @@
+﻿@model AplicativoSeguridad.Models.Vulnerabilidad
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Vulnerabilidad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="Amenaza" class="control-label"></label>
+                <input asp-for="Amenaza" class="form-control" />
+                <span asp-validation-for="Amenaza" class="text-danger"></span>*@
+                <label asp-for="Amenaza" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Amenaza, ViewBag.AmenazaList as SelectList, "Seleccione una Amenaza", new { @class = "form-control" })
+                <span asp-validation-for="Amenaza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Activo" class="control-label"></label>
+                <input asp-for="Activo" class="form-control" />
+                <span asp-validation-for="Activo" class="text-danger"></span>*@
+                <label asp-for="Activo" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Activo, ViewBag.ActivoList as SelectList, "Seleccione un Activo", new { @class = "form-control" })
+                <span asp-validation-for="Activo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NivAmenaza" class="control-label"></label>
+                <input asp-for="NivAmenaza" class="form-control" />
+                <span asp-validation-for="NivAmenaza" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NivVulnerabilidad" class="control-label"></label>
+                <input asp-for="NivVulnerabilidad" class="form-control" />
+                <span asp-validation-for="NivVulnerabilidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tolerancia" class="control-label"></label>
+                @*<input asp-for="Tolerancia" class="form-control" />*@
+                @Html.DropDownListFor(model => model.Tolerancia, new SelectList(new List<string> { "<50%", "<30%", "<10%" }), "Seleccione la tolerancia", new { @class = "form-control" })
+                <span asp-validation-for="Tolerancia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Control" class="control-label"></label>
+                <input asp-for="Control" class="form-control" />
+                <span asp-validation-for="Control" class="text-danger"></span>*@
+                <label asp-for="Control" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Control, ViewBag.ControlList as SelectList, "Seleccione un Control", new { @class = "form-control" })
+                <span asp-validation-for="Control" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="RiesgoResidual" class="control-label"></label>
+                <input asp-for="RiesgoResidual" class="form-control" />
+                <span asp-validation-for="RiesgoResidual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NivRiesgo" class="control-label"></label>
+                <input asp-for="NivRiesgo" class="form-control" />
+                <span asp-validation-for="NivRiesgo" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Control>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <h1>Registro de controles</h1>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Añadir Control</a>
+    </p>
+    <table class="table table-striped"
+           style="border-collapse: collapse; border-radius: 10px; overflow: hidden; text-align: center; vertical-align: middle">
+        <thead style="background-color: black; color: white; text-align: center; vertical-align: middle">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Responsable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Periodicidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Proposito)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Definicion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Acciones)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Eficiencia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Periodicidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proposito)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Definicion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acciones)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Eficiencia)
+                </td>*@
+                    @if (item.Eficiencia == 3)
+                    {
+                        <td style="background-color: #58D68D;">
+                            @Html.DisplayFor(modelItem => item.Eficiencia)
+                        </td>
+                    }
+                    else if (item.Eficiencia == 2)
+                    {
+                        <td style="background-color: #F4D03F;">
+                            @Html.DisplayFor(modelItem => item.Eficiencia)
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="background-color: #E74C3C;">
+                            @Html.DisplayFor(modelItem => item.Eficiencia)
+                        </td>
+                    }
+                    <td>
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </div>
+                    </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+}

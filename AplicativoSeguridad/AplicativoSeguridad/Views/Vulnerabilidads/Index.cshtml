@@ -1,0 +1,102 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Vulnerabilidad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registro de Vulnerabilidades</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Añadir Vulnerabilidad</a>
+</p>
+<table class="table table-striped"
+       style="border-collapse: collapse; border-radius: 10px; overflow: hidden; text-align: center; vertical-align: middle">
+    <thead style="background-color: black; color: white; text-align: center; vertical-align: middle">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amenaza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                Nivel de Amenaza
+            </th>
+            <th>
+                Nivel de Vulnerabilidad
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tolerancia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Control)
+            </th>
+            <th>
+                Riego Residual
+            </th>
+            <th>
+                Nivel de Riesgo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amenaza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NivAmenaza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NivVulnerabilidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tolerancia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Control)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RiesgoResidual)
+                </td>
+                @if (item.NivRiesgo == "Bajo")
+                {
+                    <td style="background-color: #58D68D;">
+                        @Html.DisplayFor(modelItem => item.NivRiesgo)
+                    </td>
+                }
+                else if (item.NivRiesgo == "Medio")
+                {
+                    <td style="background-color: #F4D03F;">
+                        @Html.DisplayFor(modelItem => item.NivRiesgo)
+                    </td>
+                }
+                else
+                {
+                    <td style="background-color: #E74C3C;">
+                        @Html.DisplayFor(modelItem => item.NivRiesgo)
+                    </td>
+                }
+                <td>
+                    <div class="btn-group-vertical">
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

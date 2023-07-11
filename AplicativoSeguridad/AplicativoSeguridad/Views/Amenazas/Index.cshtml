@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AplicativoSeguridad.Models.Amenaza>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registro de Amenazas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Añadir Amenaza</a>
+</p>
+<table class="table table-striped"
+       style="border-collapse: collapse; border-radius: 10px; overflow: hidden; text-align: center; vertical-align: middle">
+    <thead style="background-color: black; color: white; text-align: center; vertical-align: middle">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hardware)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Software)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Redes)
+            </th>
+            <th>
+                Talento Humano
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hardware)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Software)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Redes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TH)
+                </td>
+                <td>
+                    <div class="btn-group-vertical">
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

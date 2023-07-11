@@ -44,12 +44,13 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Tipo" class="control-label"></label>
-                    <select name="Tipo" id="Tipo">
+                    @*<select name="Tipo" id="Tipo">
                         <option value="Software">Software</option>
                         <option value="Hardware">Hardware</option>
                         <option value="Red">Red</option>
                         <option value="Talento Humano">TalentoHumano</option>
-                    </select>
+                    </select>*@
+                    @Html.DropDownListFor(model => model.Tipo, ViewBag.TipoList as SelectList, new { @class = "form-control" })
                     @*<input asp-for="Tipo" class="form-control" />*@
                     <span asp-validation-for="Tipo" class="text-danger"></span>
                 </div>
