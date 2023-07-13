@@ -261,7 +261,7 @@ namespace AplicativoSeguridad.Controllers
 
                 // Establish a connection to your SQL database
                 string connectionString = "YourConnectionString";
-                using (SqlConnection connection = new SqlConnection("Server=DESKTOP-G6T119Q;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+                using (SqlConnection connection = new SqlConnection("Server=BlackDragon;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
                 {
                     connection.Open();
 
