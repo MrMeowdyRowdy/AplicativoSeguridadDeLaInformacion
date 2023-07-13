@@ -81,14 +81,14 @@
             }
             else
             {
-                    <td style="background-color: #E74C3C;">
+                <td style="background-color: #E74C3C;">
                     @Html.DisplayFor(modelItem => item.ValorRiesgo)
                 </td>
                 <td style="background-color: #E74C3C;">
                     @Html.DisplayFor(modelItem => item.RiesgoInherente)
                 </td>
             }
-                <td>
+            <td>
                 <div class="btn-group-vertical">
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
                     <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
