@@ -4,6 +4,7 @@ using AplicativoSeguridad.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplicativoSeguridad.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230712023444_baseV8")]
+    partial class baseV8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,12 +233,6 @@ namespace AplicativoSeguridad.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("NivVulnerabilidad")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RiesgoInherente")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ValorRiesgo")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

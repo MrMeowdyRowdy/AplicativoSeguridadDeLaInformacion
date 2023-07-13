@@ -1,0 +1,68 @@
+﻿@model AplicativoSeguridad.Models.RiesgoResidual
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RiesgoResidual</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Activo" class="control-label"></label>
+                <input asp-for="Activo" class="form-control" readonly="readonly"/>
+                <span asp-validation-for="Activo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vulnerabilidad" class="control-label"></label>
+                <input asp-for="Vulnerabilidad" class="form-control" readonly="readonly"/>
+                <span asp-validation-for="Vulnerabilidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Responsable" class="control-label"></label>
+                <input asp-for="Responsable" class="form-control" />
+                <span asp-validation-for="Responsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tolerancia" class="control-label"></label>
+                @*<input asp-for="Tolerancia" class="form-control" />*@
+                @Html.DropDownListFor(model => model.Tolerancia, new SelectList(new List<string> { "<10%", "<30%", "<50%" }), "Seleccione la tolerancia", new { @class = "form-control" })
+                <span asp-validation-for="Tolerancia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="ControlAplicado" class="control-label"></label>
+                <input asp-for="ControlAplicado" class="form-control" />
+                <span asp-validation-for="ControlAplicado" class="text-danger"></span>*@
+                <label asp-for="NuevoControl" class="control-label"></label>
+                @Html.DropDownListFor(model => model.NuevoControl, ViewBag.ControlList as SelectList, "Seleccione un Control", new { @class = "form-control" })
+                <span asp-validation-for="NuevoControl" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="RiesgoRes" class="control-label"></label>
+                <input asp-for="RiesgoRes" class="form-control" />
+                <span asp-validation-for="RiesgoRes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoNivRiesgo" class="control-label"></label>
+                <input asp-for="NuevoNivRiesgo" class="form-control" />
+                <span asp-validation-for="NuevoNivRiesgo" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

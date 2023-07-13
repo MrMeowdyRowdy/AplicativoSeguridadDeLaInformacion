@@ -19,10 +19,9 @@ namespace AplicativoSeguridad.Models
         [Required, Range(1, 3)]
         public int NivVulnerabilidad { get; set; }
         [Required]
-        public string? Tolerancia { get; set; }
-        [Required]
-        public string? Control { get; set; }
-        public int RiesgoResidual { get; set; }
-        public string? NivRiesgo { get; set; }
+        public string? ControlAplicado { get; set; }
+        public int? ValorRiesgo { get; set; }
+        public string? RiesgoInherente { get; set; }
+
     }
 }

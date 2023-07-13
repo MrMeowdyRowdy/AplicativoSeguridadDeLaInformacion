@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AplicativoSeguridad.Models.Vulnerabilidad>
+﻿@model IEnumerable<AplicativoSeguridad.Models.RiesgoResidual>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,36 +6,33 @@
 
 <h1>Index</h1>
 
-<p>
-        <a class="btn btn-primary" asp-action="Create">Añadir Vulnerabilidad    </a>
-    </p>
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
 <table class="table table-striped"
        style="border-collapse: collapse; border-radius: 10px; overflow: hidden; text-align: center; vertical-align: middle">
     <thead style="background-color: black; color: white; text-align: center; vertical-align: middle">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Amenaza)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Activo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+                @Html.DisplayNameFor(model => model.Vulnerabilidad)
             </th>
             <th>
-                Nivel de Amenaza
+                @Html.DisplayNameFor(model => model.Responsable)
             </th>
             <th>
-                Nivel de Vulnerabilidad
+                @Html.DisplayNameFor(model => model.Tolerancia)
             </th>
             <th>
-                Control Aplicado
+                Nuevo Control
             </th>
             <th>
-                Valor de Riesgo
+                Riesgo Residual
             </th>
             <th>
-                Riesgo Inherente
+                Nuevo Nivel de Riesgo
             </th>
             <th></th>
         </tr>
@@ -44,48 +41,39 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Amenaza)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Activo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
+                @Html.DisplayFor(modelItem => item.Vulnerabilidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NivAmenaza)
+                @Html.DisplayFor(modelItem => item.Responsable)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NivVulnerabilidad)
+                @Html.DisplayFor(modelItem => item.Tolerancia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ControlAplicado)
+                @Html.DisplayFor(modelItem => item.NuevoControl)
             </td>
-            @if (item.RiesgoInherente == "Bajo")
+            <td>
+                @Html.DisplayFor(modelItem => item.RiesgoRes)
+            </td>
+            @if (item.NuevoNivRiesgo == "Bajo")
             {
-                <td style="background-color: #58D68D;">
-                    @Html.DisplayFor(modelItem => item.ValorRiesgo)
-                </td>
-                <td style="background-color: #58D68D;">
-                    @Html.DisplayFor(modelItem => item.RiesgoInherente)
+            <td style="background-color: #58D68D;">
+                @Html.DisplayFor(modelItem => item.NuevoNivRiesgo)
                 </td>
             }
-            else if (item.RiesgoInherente == "Medio")
+            else if (item.NuevoNivRiesgo == "Medio")
             {
                 <td style="background-color: #F4D03F;">
-                    @Html.DisplayFor(modelItem => item.ValorRiesgo)
-                </td>
-                <td style="background-color: #F4D03F;">
-                    @Html.DisplayFor(modelItem => item.RiesgoInherente)
+                    @Html.DisplayFor(modelItem => item.NuevoNivRiesgo)
                 </td>
             }
             else
             {
                 <td style="background-color: #E74C3C;">
-                    @Html.DisplayFor(modelItem => item.ValorRiesgo)
-                </td>
-                <td style="background-color: #E74C3C;">
-                    @Html.DisplayFor(modelItem => item.RiesgoInherente)
+                    @Html.DisplayFor(modelItem => item.NuevoNivRiesgo)
                 </td>
             }
             <td>

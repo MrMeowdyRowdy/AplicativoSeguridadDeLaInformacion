@@ -66,5 +66,36 @@ namespace AplicativoSeguridad.Controllers
 
             return controles;
         }
+
+        public List<Vulnerabilidad> GetDataVul()
+        {
+            List<Vulnerabilidad> vulnerabilidades = new List<Vulnerabilidad>();
+
+            // Retrieve the "Activo" data from the SQL Server or other data source
+            //using (SqlConnection connection = new SqlConnection("Server=DESKTOP-G6T119Q;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            using (SqlConnection connection = new SqlConnection("Server=BlackDragon;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            //using (SqlConnection connection = new SqlConnection("Server=MSI\\SQLEXPRESS;Database=AplicativoSeguridad;Trusted_Connection=True;MultipleActiveResultSets=true"))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("SELECT Codigo, NivAmenaza, NivVulnerabilidad FROM Vulnerabilidad", connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Vulnerabilidad vulnerabilidad = new Vulnerabilidad();
+                    vulnerabilidad.Codigo = reader.GetString(0);
+                    vulnerabilidad.NivAmenaza = reader.GetInt32(1);
+                    vulnerabilidad.NivVulnerabilidad = reader.GetInt32(2);
+
+                    vulnerabilidades.Add(vulnerabilidad);
+                }
+
+                reader.Close();
+            }
+
+            return vulnerabilidades;
+        }
     }
 }
