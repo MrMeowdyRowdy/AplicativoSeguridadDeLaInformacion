@@ -45,28 +45,22 @@
                 <span asp-validation-for="NivVulnerabilidad" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tolerancia" class="control-label"></label>
-                @*<input asp-for="Tolerancia" class="form-control" />*@
-                @Html.DropDownListFor(model => model.Tolerancia, new SelectList(new List<string> { "<50%", "<30%", "<10%" }), "Seleccione la tolerancia", new { @class = "form-control" })
-                <span asp-validation-for="Tolerancia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="Control" class="control-label"></label>
-                <input asp-for="Control" class="form-control" />
-                <span asp-validation-for="Control" class="text-danger"></span>*@
-                <label asp-for="Control" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Control, ViewBag.ControlList as SelectList, "Seleccione un Control", new { @class = "form-control" })
-                <span asp-validation-for="Control" class="text-danger"></span>
+                @*<label asp-for="ControlAplicado" class="control-label"></label>
+                <input asp-for="ControlAplicado" class="form-control" />
+                <span asp-validation-for="ControlAplicado" class="text-danger"></span>*@
+                <label asp-for="ControlAplicado" class="control-label"></label>
+                @Html.DropDownListFor(model => model.ControlAplicado, ViewBag.ControlList as SelectList, "Seleccione un Control", new { @class = "form-control" })
+                <span asp-validation-for="ControlAplicado" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="RiesgoResidual" class="control-label"></label>
-                <input asp-for="RiesgoResidual" class="form-control" />
-                <span asp-validation-for="RiesgoResidual" class="text-danger"></span>
+                <label asp-for="ValorRiesgo" class="control-label"></label>
+                <input asp-for="ValorRiesgo" class="form-control" />
+                <span asp-validation-for="ValorRiesgo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NivRiesgo" class="control-label"></label>
-                <input asp-for="NivRiesgo" class="form-control" />
-                <span asp-validation-for="NivRiesgo" class="text-danger"></span>
+                <label asp-for="RiesgoInherente" class="control-label"></label>
+                <input asp-for="RiesgoInherente" class="form-control" />
+                <span asp-validation-for="RiesgoInherente" class="text-danger"></span>
             </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

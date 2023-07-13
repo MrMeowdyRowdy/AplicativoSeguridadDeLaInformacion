@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AplicativoSeguridad.Models.Vulnerabilidad>
+﻿@model IEnumerable<AplicativoSeguridad.Models.RiesgoResidual>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,35 +6,32 @@
 
 <h1>Index</h1>
 
-<p>
+@*<p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>*@
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Amenaza)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Activo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+                @Html.DisplayNameFor(model => model.Vulnerabilidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NivAmenaza)
+                @Html.DisplayNameFor(model => model.Responsable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NivVulnerabilidad)
+                @Html.DisplayNameFor(model => model.Tolerancia)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ControlAplicado)
+                @Html.DisplayNameFor(model => model.NuevoControl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorRiesgo)
+                @Html.DisplayNameFor(model => model.RiesgoRes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RiesgoInherente)
+                @Html.DisplayNameFor(model => model.NuevoNivRiesgo)
             </th>
             <th></th>
         </tr>
@@ -43,28 +40,25 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Amenaza)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Activo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
+                @Html.DisplayFor(modelItem => item.Vulnerabilidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NivAmenaza)
+                @Html.DisplayFor(modelItem => item.Responsable)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NivVulnerabilidad)
+                @Html.DisplayFor(modelItem => item.Tolerancia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ControlAplicado)
+                @Html.DisplayFor(modelItem => item.NuevoControl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorRiesgo)
+                @Html.DisplayFor(modelItem => item.RiesgoRes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RiesgoInherente)
+                @Html.DisplayFor(modelItem => item.NuevoNivRiesgo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
